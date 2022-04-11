@@ -28,6 +28,7 @@ public class StockController {
 	
 	
 	
+	
 	 @Autowired
 	    public StockController(StockRepository stockRepository,ArticleRepository articleRepository) {
 	     this.stockRepository  =stockRepository;
@@ -54,7 +55,9 @@ public class StockController {
 	 @GetMapping("add")
 	    public String showAddStockForm(Stock stock, Model model) {
 	  	    	model.addAttribute("articles", articleRepository.findAll());
+	  	    	
 	          	model.addAttribute("stock", new Stock());
+	          
 	        return "stock/addStock";
 	    }
 	 

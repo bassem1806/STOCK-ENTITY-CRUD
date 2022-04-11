@@ -24,6 +24,7 @@
 						<a class="nav-link" th:href="@{'/home'}">
 								<div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
 								Home
+							
 							</a>
 							<a class="nav-link" th:href="@{'/provider/list/'}">
 								<div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
@@ -34,19 +35,21 @@
 								<div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
 								Articles
 							</a>
-							<li class="liste">
+							<nav>
+							<li class="menu-deroulant">
 							
 								<div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"> 	Role  </i></div>
 								
 								</a>
+								<ul class="sous-menu">
 								<li><a class="nav-link" th:href="@{'/role/add/'}"><div class="sb-nav-link-icon"><i class="fas -fa-solid fa-plus"></i></div>ADD</a></li>
 								<li><a class="nav-link" th:href="@{'/role/list/'}"><div class="sb-nav-link-icon"><i class="fas fa-solid fa-list"></i></div>Liste</a></li>
-								
+								 </ul>
 						
-							
+
 </li>							
 															
-																
+	</nav>															
 	
 					<a class="nav-link" th:href="@{'/stock/list/'}">
 								<div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>

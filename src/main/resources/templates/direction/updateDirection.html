@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Update Direction</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container my-5">
+        <h3 align="center"> Update Direction</h3>
+        <div class="card">
+            <div class="card-body">
+                <div class="col-md-8">
+                    <form action="#" th:action="@{/direction/edit/}" th:object="${direction}" method="post">
+                        <input type="hidden" th:field="*{id}" />
+                        <div class="row">
+                            <div class="form-group col-md-6">
+                                <label for="libele" class="col-form-label">libele</label> <input type="text" th:field="*{libele}" class="form-control" id="libele" placeholder="libele" /> <span th:if="${#fields.hasErrors('libele')}" th:errors="*{libele}" class="text-danger"></span>
+                            </div>
+                            <div class="form-group col-md-8">
+                                <label for="etat" class="col-form-label">etat</label> <input type="text" th:field="*{etat}" class="form-control" id="etat" placeholder="etat" /> <span th:if="${#fields.hasErrors('etat')}" th:errors="*{etat}" class="text-danger"></span>
+                            </div>
+                             <div class="form-group col-md-8">
+                                <label for="codeDir" class="col-form-label">code_Dir</label> <input type="text" th:field="*{codeDir}" class="form-control" id="codeDir" placeholder="codeDir" /> <span th:if="${#fields.hasErrors('codeDir')}" th:errors="*{codeDir}" class="text-danger"></span>
+                            </div>
+                            
+                            <div class="form-group col-md-8">
+                             <label for="directiong" class="col-form-label">Select Direction General</label>
+                            <select name="directiongId" class="form-control">
+							    <option  th:each="dr: ${directiongs}" 
+							    th:value="${dr.id}"
+							    th:text="${dr.libele}" 
+							    th:selected="(${dr.id} == ${idDirectiong})"
+							     />
+							</select>
+							</div>
+                            
+                            
+                            <div class="form-group col-md-8">
+                                <input type="submit" class="btn btn-primary" value="Update Direction">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

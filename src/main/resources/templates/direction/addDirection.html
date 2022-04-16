@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Add Direction</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+    <!-- <link rel="stylesheet" href="../css/shards.min.css"> -->
+</head>
+
+<body >
+
+	<div th:replace="fragments/header :: header" />
+
+
+
+			<main>
+
+    <div class="container my-5">
+        <h3> Add Direction</h3>
+        <div class="card">
+            <div class="card-body">
+                <div class="col-md-10">
+                    <form action="#" th:action="@{/direction/addSave}" th:object="${direction}" method="post" enctype="multipart/form-data">
+                        <div class="row">
+							<div class="form-group col-md-8">
+                                <label for="name" class="col-form-label">libele</label> <input type="text" th:field="*{libele}" class="form-control" id="libele" placeholder="libele"/> <span th:if="${#fields.hasErrors('libele')}" th:errors="*{libele}" class="text-danger"></span>
+                            </div>
+                            <div class="form-group col-md-8">
+                                <label for="etat" class="col-form-label">etat </label> <input type="text" th:field="*{etat}" class="form-control" id="etat" placeholder="etat"/> <span th:if="${#fields.hasErrors('etat')}" th:errors="*{etat}" class="text-danger"></span>
+                            </div>
+                            <div class="form-group col-md-8">
+                                <label for="codeDir" class="col-form-label">codeDir</label> <input type="text" th:field="*{codeDir}" class="form-control" id="codeDir" placeholder="codeDir"/> <span th:if="${#fields.hasErrors('codeDir')}" th:errors="*{codeDir}" class="text-danger"></span>
+                            </div>
+                           
+                            
+                           
+                            
+                            <div class="form-group col-md-8">
+                             <label for="directiong" class="col-form-label">Direction Général</label>
+                            <select name="directiongId" class="form-control">
+							    <option  th:each="dr: ${directiongs}" th:value="${dr.id}" th:text="${dr.libele}" />
+							</select>
+							</div>
+							
+							
+							
+                            <div class="col-md-6">
+                                <input type="submit" class="btn btn-primary" value="Add Direction"/>
+                            </div>
+                               <p class="my-5" align="right">
+                      <a th:href="@{'/direction/list'}" class="btn btn-secondary" >
+                    
+                      <i class="fas fa-solid fa-backward">             Retour Direction List</i></a>
+
+                            <div class="form-group col-md-8"></div>
+
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+       
+    </div>
+      
+
+    <div th:replace="fragments/footer::footer" />
+    
+	
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+			crossorigin="anonymous"></script>
+		<script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
+
+		<script src="@{/js/scripts.js}"></script>
+		<script th:src="@{/js/datatables-simple-demo.js}"></script>
+		<script th:src="@{/js/chart-area-demo.js}"></script>
+		<script th:src="@{/js/chart-bar-demo.js}"></script>
+
+
+</body>
+
+</html>

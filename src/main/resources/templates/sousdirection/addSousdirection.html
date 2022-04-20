@@ -35,23 +35,21 @@
                             <div class="form-group col-md-8">
                                 <label for="CodeSousdirection" class="col-form-label">code_Sous_Dir</label> <input type="text" th:field="*{CodeSousdirection}" class="form-control" id="CodeSousdirection" placeholder="CodeSousdirection"/> <span th:if="${#fields.hasErrors('CodeSousdirection')}" th:errors="*{CodeSousdirection}" class="text-danger"></span>
                             </div>
-                           
-                            
-                           
-                            
+
                             <div class="form-group col-md-8">
                              <label for="directiong" class="col-form-label"> Direction Général</label>
                             <select name="directiongId" class="form-control">
 							    <option  th:each="drg: ${directiongs}" th:value="${drg.id}" th:text="${drg.libele}" />
 							</select>
 							</div>
+                            <div class="form-group col-md-8">
+                                <label for="direction" class="col-form-label">Direction</label>
+                                <select name="directionId" class="form-control">
+                                    <option  th:each="d: ${directions}" th:value="${d.id}" th:text="${d.libele}" />
+                                </select>
+                            </div>
 							
-							<div class="form-group col-md-8">
-                             <label for="direction" class="col-form-label">Sous Direction </label>
-                            <select name="directionId" class="form-control">
-							    <option  th:each="dr: ${directions}" th:value="${dr.id}" th:text="${dr.libele}" />
-							</select>
-							</div>
+
 							
 							
 							

@@ -1,17 +1,10 @@
 package com.sip.ams.entities;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.validation.constraints.NotBlank;
-
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
+
+import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 
 @Entity
 public class Sousdirection {
@@ -40,6 +33,22 @@ public class Sousdirection {
 	@JoinColumn(name = "direction_id", nullable = false)
 	@OnDelete(action = OnDeleteAction.CASCADE)
 	private Direction direction;
+
+
+
+	/**** Many To One ****/
+	@ManyToOne(fetch = FetchType.LAZY, optional = false)
+	@JoinColumn(name = "directiong_id", nullable = false)
+	@OnDelete(action = OnDeleteAction.CASCADE)
+	private Directiong directiong;
+	public Directiong getDirectiong() {
+		return directiong;
+	}
+
+	public void setDirectiong(Directiong directiong) {
+		this.directiong = directiong;
+	}
+
 
 	public Sousdirection(long id, String libele, int etat,int codeSousdirection) {
 

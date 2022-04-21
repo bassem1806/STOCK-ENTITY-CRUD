@@ -1,6 +1,7 @@
 package com.sip.ams.controllers;
 
 import com.sip.ams.entities.Direction;
+import com.sip.ams.entities.Directiong;
 import com.sip.ams.entities.Sousdirection;
 import com.sip.ams.repositories.DirectionRepository;
 import com.sip.ams.repositories.DirectiongRepository;
@@ -65,14 +66,19 @@ public class SousdirectionController {
 
     public String addSousdirection(@Valid Sousdirection sousdirection, BindingResult result,
 
-                                   @RequestParam(name = "directionId", required = true) Long d)
-
+                                   @RequestParam(name = "directionId", required = true) Long d,
+                                   @RequestParam(name = "directiongId", required = true) Long a)
     {
 
         Direction direction= directionRepository.findById(d).orElseThrow(()-> new IllegalArgumentException
                 ("Invalid direction Id:" +d));
         sousdirection.setDirection(direction);
 
+        Directiong directiong = directiongRepository.findById(a).orElseThrow(()-> new IllegalArgumentException
+                ("Invalid directiong Id:" +a));
+        // System.out.println("libille artile" +article.getLabel());
+        sousdirection.setDirectiong(directiong);
+        System.out.println( "dg :" + a);
 
         sousdirectionRepository.save(sousdirection);
         return "redirect:list";

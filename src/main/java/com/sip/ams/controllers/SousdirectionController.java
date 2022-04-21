@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-
+import org.springframework.web.bind.annotation.PathVariable;
 import javax.validation.Valid;
 import java.util.List;
 
@@ -84,6 +84,64 @@ public class SousdirectionController {
         return "redirect:list";
 
     }
+
+
+    @GetMapping("delete/{id}")
+    public String deleteSousdirection(@PathVariable("id") long id, Model model) {
+        Sousdirection sousdirection = sousdirectionRepository.findById(id)
+                .orElseThrow(()-> new IllegalArgumentException("Invalid sousdirection Id:" + id));
+        sousdirectionRepository.delete(sousdirection);
+        model.addAttribute("sousdirection", sousdirectionRepository.findAll());
+        return "redirect:../list";
+
+    }
+    @GetMapping("edit/{id}")
+    public String showsousdirecctionFormToUpdate(@PathVariable("id") long id, Model model) {
+        Sousdirection sousdirection = sousdirectionRepository.findById(id)
+                .orElseThrow(()->new IllegalArgumentException("Invalid Sousdirection Id:" + id));
+
+        model.addAttribute("sousdirection", sousdirection);
+
+        model.addAttribute("directions", directionRepository.findAll());
+        model.addAttribute("idDirection", sousdirection.getDirection().getId());
+
+        model.addAttribute("directiongs", directiongRepository.findAll());
+        model.addAttribute("idDirectiong", sousdirection.getDirectiong().getId());
+
+
+    return "sousdirection/updateSousdirection";
+    }
+
+    @PostMapping("edit")
+    public String updateSousdirection(@Valid Sousdirection sousdirection, BindingResult result, Model model, @RequestParam(name = "directiongId", required = false) Long d,  @RequestParam(name = "directionId", required = true) Long a) {
+        if (result.hasErrors()) {
+            return "sousdirection/updatesousdirection";
+        }
+
+
+
+        Directiong directiong = directiongRepository.findById(d)
+
+                .orElseThrow(()-> new IllegalArgumentException("Invalid Directiong General Id:" + d));
+
+        sousdirection.setDirectiong(directiong);
+
+
+
+
+        Direction direction = directionRepository.findById(a)
+        .orElseThrow(()-> new IllegalArgumentException("Invalid Direction Id:" + a));
+
+
+        sousdirection.setDirection(direction);
+
+
+
+     sousdirectionRepository.save(sousdirection);
+        return "redirect:../list";
+
+    }
+
 
 
 }

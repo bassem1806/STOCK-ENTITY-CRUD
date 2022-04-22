@@ -16,7 +16,7 @@
         <div class="card-body">
             <div class="col-md-8">
                 <form action="#" th:action="@{/sousdirection/edit/}" th:object="${sousdirection}" method="post">
-                    <input type="text" th:field="*{id}" />
+                    <input type="hidden" th:field="*{id}" />
                     <div class="row">
 
                         <div class="form-group col-md-6">

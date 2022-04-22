@@ -1,7 +1,8 @@
 package com.sip.ams.entities;
-import org.hibernate.validator.constraints.Length;
-import javax.persistence.*;
 
+import org.hibernate.validator.constraints.Length;
+
+import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
 import java.util.Set;
 @Entity
@@ -17,6 +18,15 @@ public class User {
     @Column(name = "login")
     @NotEmpty(message = "*Please provide an login")
     private String login;
+
+
+/*
+    @Email
+	@Column(name = "email")
+	@NotEmpty(message = "*Please provide an email")
+	private String email;
+	*/
+
     
     @Column(name = "password")
     @Length(min = 5, message = "*Your password must have at least 5 characters")
@@ -80,6 +90,8 @@ public class User {
 	}
 	public void setLogin(String login) {
 		this.login = login;
+
 	}
+
 
 }

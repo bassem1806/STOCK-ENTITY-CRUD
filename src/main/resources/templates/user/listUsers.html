@@ -32,8 +32,9 @@
 								<thead>
 									<tr>
 										<th>ID</th>
-										<th>Name</th>
-										<th>Email</th>
+										<th>login</th>
+									<th> Name</th>
+										<th>last Name</th>
 										<th>Role</th>
 										<th>Update Role</th>
 										<th>is Active</th>
@@ -44,9 +45,11 @@
 								<tbody>
 									<tr th:each="user : ${users}">
 										<td th:text="${user.id}"></td>
+										<td th:text="${user.login}"></td>
+
 										<td th:text="${user.name}"></td>
-										<td th:text="${user.email}"></td>
-										<td th:text="${user.roles[0].role}"></td>
+										<td th:text="${user.lastName}"></td>
+										<td th:text="${user.roles[0].getRole()}"></td>
 										<td>
 										<form method="post" th:action="@{/accounts/updateRole}">
 											<select name="newrole" class="form-control">
@@ -61,8 +64,8 @@
 										</td>
 										<td th:text="${user.active}"></td>
 										
-										<td><a th:href="@{/accounts/enable/{id}/{email} (id=${user.id}, email=${user.email})}">Activer</a></td>
-										<td><a th:href="@{/accounts/disable/{id}/{email} (id=${user.id}, email=${user.email})}">Désactiver</a></td>
+										<td><a th:href="@{/accounts/enable/{id}/{login} (id=${user.id}, login=${user.login})}">Activer</a></td>
+										<td><a th:href="@{/accounts/disable/{id}/{login} (id=${user.id}, login=${user.login})}">Désactiver</a></td>
 									    
 									</tr>
 								</tbody>

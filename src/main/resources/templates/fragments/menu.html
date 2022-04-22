@@ -11,48 +11,10 @@
 	<link href="css/styles.css" rel="stylesheet" />
 	<script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
 </head>
-<style>
-.dropbtn {
-  background-color: #4CAF50;
-  color: white;
-  padding: 16px;
-  font-size: 16px;
-  border: none;
-  cursor: pointer;
-}
 
-.dropbtn:hover, .dropbtn:focus {
-  background-color: #3e8e41;
-}
-
-.dropdown {
-  position: relative;
-  display: inline-block;
-}
-
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: #f9f9f9;
-  min-width: 160px;
-  overflow: auto;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-}
-
-.dropdown-content a {
-  color: black;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
-}
-
-.dropdown-content a:hover {background-color: #f1f1f1}
-
-.show {display:block;}
-</style>
 <body class="sb-nav-fixed">
-	<div th:fragment="menu">
-		<div id="layoutSidenav">
+	<div  th:fragment="menu">
+		<div id="layoutSidenav" >
 			<div id="layoutSidenav_nav">
 				<nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
 					<div class="sb-sidenav-menu">
@@ -73,21 +35,20 @@
 								<div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
 								Articles
 							</a>
+							<a class="nav-link" th:href="@{'/stock/list/'}">
+								<div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+								Stock
+							</a>
 							<a class="nav-link" th:href="@{'/role/list/'}">
 								<div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
 								Role
 							</a>
 
-
-	
-	
-	
-														
-	
-					<a class="nav-link" th:href="@{'/stock/list/'}">
+							<a class="nav-link" th:href="@{'/accounts/list/'}">
 								<div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-								Stock
+								Liste Utilisateur
 							</a>
+
 							<a class="nav-link" th:href="@{'/directiong/list/'}">
 								<div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
 								Direction Général

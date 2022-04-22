@@ -11700,21 +11700,23 @@ body {
   border-radius: 0.25rem !important;
 }
 #menu{
-   width:180px;
+   width:200px;
    margin:20px auto 0 auto;
+
+
 }
 .menu, .sousmenu{
    text-align:center;
 }
- 
+
 .menu{
-   width:180px;
-   padding:2px 0;
-   background:#404040;
-   color:#fff;
+  width:180px;
+  padding:2px 0;
+  background:#404040;
+  color:#fff;
   cursor: pointer;
 }
- 
+
 .sousmenu{
    width:180px;
    padding:1px 0;

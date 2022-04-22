@@ -16,8 +16,8 @@
         <div class="card-body">
             <div class="col-md-8">
                 <form action="#" th:action="@{/sousdirection/edit/}" th:object="${sousdirection}" method="post">
+                    <input type="text" th:field="*{id}" />
                     <div class="row">
-
 
                         <div class="form-group col-md-6">
                             <label for="libele" class="col-form-label">libele</label> <input type="text" th:field="*{libele}" class="form-control" id="libele" placeholder="libele" /> <span th:if="${#fields.hasErrors('libele')}" th:errors="*{libele}" class="text-danger"></span>
